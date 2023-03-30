@@ -20,10 +20,6 @@ def hello():
 
 @app.route('/favorite-course')
 def favorite_course():
-
-    print('Subject: ' + request.args.get('subject'))
-    print('Course Number: ' + request.args.get('course_number'))
-
     return render_template('favorite-course.html')
 
 

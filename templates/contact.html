@@ -2,20 +2,13 @@
 
 {% block page_title %}Contact{% endblock %}
 
-{% block page_h1 %}Enter Your Contact Info{% endblock %}
+{% block page_head %}Enter Your Contact Info{% endblock %}
 
-<div class = "container">
 {% block page_content %}
 
   {% if form_submitted %}
     <div class = "col-12">
         <h2>Thank you for completing my form!</h2>
-    </div>
-    <div class = "col-md-6">
-    <p>Email:</p>
-    </div>
-    <div class = "col-md-6">
-        <p> {{  request.form.get('inputEmail') }} </p>
     </div>
     <div class = "col-md-6">
         <p>First Name:</p>
@@ -29,6 +22,12 @@
     <div class = "col-md-6">
         <p> {{  request.form.get('last_name') }} </p>
     </div>
+    <div class = "col-md-6">
+    <p>Email:</p>
+    </div>
+    <div class = "col-md-6">
+        <p> {{  request.form.get('inputEmail') }} </p>
+    </div>
      <div class = "col-md-6">
         <p>School:</p>
     </div>
@@ -36,14 +35,10 @@
         <p> {{  request.form.get('inputSchool') }} </p>
     </div>
 
-      <p> <a href="{{  url_for('contact') }}">Complete the form again</a></p>
+      <p><a href="{{  url_for('contact') }}">Complete the form again</a></p>
   {% else %}
 
    <form class="row g-3" action= "{{ url_for('contact') }}" method ="post">
-      <div class="col-md-6">
-        <label for="inputEmail" class="form-label">Email</label>
-        <input type="email" class="form-control" placeholder= "Email" id="inputEmail" name = "inputEmail">
-      </div>
       <div class="col-md-6">
           <label for="first_name" class="form-label">First Name</label>
         <input type="text" class="form-control" placeholder="First name" id= "first_name" name = "first_name" aria-label="First name">
@@ -53,8 +48,12 @@
         <input type="text" class="form-control" placeholder="Last name" id = "last_name" name = "last_name" aria-label="Last name">
       </div>
       <div class="col-md-6">
+        <label for="inputEmail" class="form-label">Email</label>
+        <input type="email" class="form-control" placeholder= "Email" id="inputEmail" name = "inputEmail">
+      </div>
+      <div class="col-md-6">
         <label for="inputSchool" class="form-label">School</label>
-        <input type="text" class="form-control" id="inputSchool" name = "inputSchool" placeholder="University Name">
+        <input type="text" class="form-control" id="inputSchool" name = "inputSchool" placeholder="School name">
       </div>
       <div class="col-12">
         <button type="submit" class="btn btn-primary">Submit Form</button>
@@ -63,6 +62,5 @@
    {% endif %}
 
 {% endblock %}
-</div>
 
 
